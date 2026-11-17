@@ -1,6 +1,6 @@
 # Agent-Kept Brain prompt template
 
-Fill in the four fields below, then paste this whole file into Claude Code in an empty folder. Defaults are already filled. Change no other line of the specification.
+Open Claude Code in an empty folder and give it this specification: paste this file, or attach the two page images and say "build this". Fill in the four fields below if you like; defaults are already filled. Change no other line of the specification.
 
 - Vault name: brain
 - Owner name: <your name>
@@ -11,7 +11,7 @@ Fill in the four fields below, then paste this whole file into Claude Code in an
 
 ---
 
-Build a complete, working repository in one pass. Do not ask questions. Do not leave stubs or TODOs. Follow this specification exactly. Where it gives literal text, copy it verbatim. When done, run the acceptance checks in section 11 and fix anything that fails.
+If Owner name is still `<your name>`, first ask the owner for their name and time zone; that is the only question before the build. Then build a complete, working repository in one pass. Do not leave stubs or TODOs. Follow this specification exactly. Where it gives literal text, copy it verbatim. When done, run the acceptance checks in section 11, fix anything that fails, then run the first session in section 11.
 
 # 1. Product
 
@@ -152,7 +152,7 @@ If Scheduler is cron, write `scripts/crontab.example` starting `CRON_TZ=<Time zo
 
 Seed files: `wiki/index.md` with headings People, Projects, Decisions, Concepts, Questions. `wiki/_tags.md` with a table `tag | meaning` and 8 starter tags: meetings, decisions, people, ai, strategy, learning, health, home. `wiki/_aliases.md` with the header row and one row for the owner (aliases: the first name; role: owner; status: active). The scout links a person only when the name resolves through it; otherwise the name goes in `attendees_unresolved`. `wiki/log.md` with `# Log` and one line `## [<today>] setup | vault created`. `wiki/_lessons.md`, `_feedback.md` (headings Notes, Misses), `_decisions.md` (header row) with one-line purposes. `examples/raw/` holds three invented, clearly fictional files: a meeting between two made-up people that states one decision and one commitment, a short article clip, and a voice note.
 
-README sections: What this is (4 lines), Setup (1: create a private repo from this folder; 2: add `ANTHROPIC_API_KEY` as a repository secret, or log in to Claude Code on the always-on machine; 3: open the folder in Obsidian; 4: copy `examples/raw/*` into `raw/inbox/`; 5: run `bash scripts/run.sh nightly` and read `reports/`), Daily use (capture to raw/inbox; read reports and tick; ask in Claude Code with /ask), How it learns (the retro loop in 4 lines), Add-ons (section 12, one line each).
+README sections: What this is (4 lines), Setup (1: create a private repo from this folder; 2: add `ANTHROPIC_API_KEY` as a repository secret, or log in to Claude Code on the always-on machine; 3: open the folder in Obsidian; 4: copy `examples/raw/*` into `raw/inbox/`; 5: run `bash scripts/run.sh nightly` and read `reports/`), Your first week (add 5 to 10 people you work with to `wiki/_aliases.md`; drop 2 or 3 things a day into `raw/inbox`; each morning read the newest report and tick; on day 7 ask one real question with /ask; answers get good after about a week of captures), Daily use (capture to raw/inbox; read reports and tick; ask in Claude Code with /ask), How it learns (the retro loop in 4 lines), Add-ons (section 12, one line each).
 
 Acceptance, run each and fix until all pass:
 1. `python3 scripts/pending.py` on the fresh vault prints nothing.
@@ -160,6 +160,12 @@ Acceptance, run each and fix until all pass:
 3. `python3 scripts/lint.py` runs on the fresh vault and prints a top line.
 4. `bash -n scripts/run.sh` passes, and the workflow YAML parses with `python3 -c "import yaml"` if available, else by eye.
 5. No file contains a real person's name other than `<Owner name>`, a personal email address (the GitHub bot address is allowed), an API key, or an absolute home path.
+
+First session, in the same chat once the checks pass, so the owner leaves with a working vault:
+1. `git init` and commit everything as `setup: vault created`.
+2. Demo: on a branch `demo`, copy `examples/raw/*` into `raw/inbox/` with `write_raw.py`, then follow the ingest, curate and lint skills yourself. Show the owner the source page, a person or decision page, and the report, in under 10 lines. Then `git checkout main`; the demo branch stays for them to browse.
+3. Ask for up to 10 people they work with (name, any nicknames, role) and add one `_aliases.md` row each. Skipping is fine.
+4. Give only the steps left for them, for their Scheduler: github-actions (create a private repo, push, add `ANTHROPIC_API_KEY` as a secret, run the workflow once from the Actions tab) or cron (`crontab scripts/crontab.example`). Then print the "Your first week" list from the README.
 
 # 12. Add-ons (build only when asked later)
 

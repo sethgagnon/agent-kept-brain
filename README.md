@@ -4,12 +4,14 @@ A personal knowledge base that AI agents keep and you read. Your captures land i
 
 This repo is one file: [`agent-kept-brain.md`](agent-kept-brain.md), a build spec you paste into Claude Code. It builds the whole vault in one pass: the rules file, the agents, the skills, the scripts, the schedule and a sample to try it on.
 
+The same spec as two images, for sharing or attaching: [page 1](images/page-01.png), [page 2](images/page-02.png).
+
 ## Use it
 
 1. Make an empty folder and open Claude Code in it.
-2. Fill in the four fields at the top of `agent-kept-brain.md` (vault name, your name, time zone, scheduler).
-3. Paste the whole file as your prompt.
-4. Follow the README it writes: add your API key, copy the sample files into `raw/inbox/`, run the nightly job, read `reports/`.
+2. Optional: fill in the four fields at the top of `agent-kept-brain.md` (vault name, your name, time zone, scheduler). If you skip them it asks for your name and time zone.
+3. Paste the whole file as your prompt, or attach the two page images and say "build this".
+4. It builds the vault, runs its own checks, then walks you through a first session: a demo on sample files, adding the people you work with, and the last setup steps for your machine or GitHub.
 
 ## What you get
 
