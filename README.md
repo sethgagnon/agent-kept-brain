@@ -4,6 +4,8 @@ A personal knowledge base that AI agents keep and you read. Your captures land i
 
 This repo is one file: [`agent-kept-brain.md`](agent-kept-brain.md), a build spec you paste into Claude Code. It builds the whole vault in one pass: the rules file, the agents, the skills, the scripts, the schedule and a sample to try it on.
 
+The same spec as two images, for sharing or attaching: [page 1](images/page-01.png), [page 2](images/page-02.png).
+
 ## Use it
 
 1. Make an empty folder and open Claude Code in it.
