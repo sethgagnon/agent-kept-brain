@@ -129,7 +129,7 @@ Each skill is `.claude/skills/<name>/SKILL.md` with front matter `name` and a on
 
 # 7. Permissions (`.claude/settings.json`)
 
-Allow: Read, Glob, Grep, `Edit(wiki/**)`, `Write(wiki/**)`, `Write(reports/**)`, `Edit(outputs/**)`, `Write(outputs/**)`, `Bash(python3 scripts/pending.py)`, `Bash(python3 scripts/lint.py)`, `Bash(python3 scripts/write_raw.py:*)`, `Bash(git status:*)`, `Bash(git log:*)`, `Bash(git diff:*)`.
+Allow: Read, Glob, Grep, `Edit(wiki/**)`, `Write(wiki/**)`, `Edit(reports/**)`, `Write(reports/**)`, `Edit(outputs/**)`, `Write(outputs/**)`, `Bash(python3 scripts/pending.py)`, `Bash(python3 scripts/lint.py)`, `Bash(python3 scripts/write_raw.py:*)`, `Bash(git status:*)`, `Bash(git log:*)`, `Bash(git diff:*)`.
 Deny: `Edit(raw/**)`, `Write(raw/**)`, `Edit(CLAUDE.md)`, `Write(CLAUDE.md)`, `Edit(.claude/**)`, `Write(.claude/**)`, `Edit(scripts/**)`, `Write(scripts/**)`, `Bash(rm:*)`, `Bash(curl:*)`, `Bash(wget:*)`, `Bash(git push --force:*)`.
 
 # 8. Scripts
