@@ -18,7 +18,7 @@ The same spec as two images, for sharing or attaching: [page 1](images/page-01.p
 - **Files are the truth.** Plain Markdown in Git. Open it in Obsidian or any editor. Git history is the undo button.
 - **Every claim is cited.** A line on a wiki page with no source does not go on the page.
 - **Raw stays raw.** Agents cannot edit what you captured, enforced by both the rules and the tool permissions.
-- **It learns, you decide.** Your own edits are treated as corrections. The weekly retro turns them into proposals you tick on your phone.
+- **It learns, you decide.** Your own edits are treated as corrections. The weekly retro turns them into proposals you tick on your phone. Each change you approve records a baseline and a review date, and the retro later writes down whether it was kept or rolled back, with the numbers.
 - **Caps everywhere.** Each run has limits on pages touched, so one bad night cannot rewrite the vault.
 
 Add-ons (share-with-a-note requests, a playbook that carries lessons between side projects, a to-do feed, a weekly exam) are described at the end of the spec, to build when you want them.
